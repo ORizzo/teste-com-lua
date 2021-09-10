@@ -3,7 +3,6 @@
 local username = "ORizzo"
 local idnum = 7716
 local steamUser = "Beck"
-
 local User = {username, idnum}
 
 if User[1] == "ORizzo" then
@@ -25,15 +24,15 @@ end
 -- Simulando o uso de Pílulas dentro do jogo
 
 local Pills = 2
-local healthy = 100
-local pillHeal = 10 
- 
+local healthy = 80
+local pillHeal = 10
+
 function RodarPills(Quantidade)
-    if Pills < Quantidade then 
+    if Pills < Quantidade then
         print("Você não tem pilúlas o suficiente")
         return
     end
-    if healthy == 100 then 
+    if healthy == 100 then
         print("Você não precisa de cura")
         return
     end
@@ -41,6 +40,27 @@ function RodarPills(Quantidade)
     -- Colocar o tempo da animação
     Pills = Pills - Quantidade
     healthy = healthy + pillHeal * Quantidade
-    print("Você foi curado, sua vida atual é de"..healthy)
+    print("Você foi curado, sua vida atual é de" .. healthy)
 end
 RodarPills(1)
+
+local nomes = {"Assis", "Milena", "Julia"}
+
+for k, v in pairs(penis) do
+    print(k, v)
+end
+
+-- Comando para pegar o ping e o nome do player
+
+RegisterCommand("player", function(gamesource, args)
+    print(GetPlayerName())
+    print(GetPlayerPing()) -- Printou o nome da steam e o ping em ms
+end)
+
+-- Comando para aumentar e abaixar a suspensão. 
+
+RegisterCommand("suspensão", function(gamesource, args)
+    local vehiclemodel = "Italligtb"
+    local vehicleheight = 15 -- em cms
+    setVehicleSuspensionHeight(vehiclemodel,vehicleheight + args)
+end)
